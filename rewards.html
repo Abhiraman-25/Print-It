@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rewards — Print It</title>
+    <meta name="description" content="Earn points from every page printed. See your tier and progress to the next level." />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="logo.png" />
+    <script src="app.js" defer></script>
+  </head>
+  <body data-page="rewards">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html">
+          <img src="logo.png" alt="Print It logo" class="brand-logo" onerror="this.style.display='none'" />
+          <span class="brand-text">Print It</span>
+        </a>
+        <nav class="nav">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="options.html" class="nav-link">Start Printing</a>
+          <a href="user.html" class="nav-link">My Account</a>
+          <a href="rewards.html" class="nav-link active">Rewards</a>
+          <a href="admin.html" class="nav-link">Admin</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="login.html" class="nav-link" id="navAuthLink">Sign in</a>
+          <button class="btn theme-toggle" id="themeToggle" title="Toggle theme">🌓</button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="auth-gate" id="authGate" style="display:none">
+        <div class="inline-notice warning">
+          Please sign in to view rewards.
+          <a href="login.html" class="inline-link">Sign in</a>
+        </div>
+      </div>
+
+      <section class="grid-2">
+        <div class="card">
+          <h1 class="card-title">Your rewards</h1>
+          <div class="stats">
+            <div class="stat">
+              <div class="stat-value" id="pointsTotal">0</div>
+              <div class="stat-label">Total points</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value" id="tierName">Bronze</div>
+              <div class="stat-label">Tier</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value" id="ordersCount">0</div>
+              <div class="stat-label">Orders</div>
+            </div>
+          </div>
+
+          <div class="progress">
+            <div class="progress-bar" id="progressBar" style="width:0%"></div>
+          </div>
+          <div class="muted" id="tierDetail">0 / 100 to Silver</div>
+        </div>
+
+        <div class="card">
+          <h2 class="card-title">Perks</h2>
+          <ul class="bullets">
+            <li>Bronze: welcome bonus offers</li>
+            <li>Silver (100 pts): 5% off color prints</li>
+            <li>Gold (500 pts): 10% off + priority queue</li>
+            <li>Platinum (1500 pts): 15% off + free bindings</li>
+          </ul>
+          <button id="redeemBtn" class="btn btn-primary">Redeem sample reward</button>
+          <div class="inline-notice" id="redeemMessage" role="status" aria-live="polite"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>© <span id="year"></span> Print It</div>
+        <div class="footer-links">
+          <a href="options.html">Print</a>
+          <a href="user.html">My Account</a>
+          <a href="rewards.html">Rewards</a>
+          <a href="admin.html">Admin</a>
+          <a href="about.html">About</a>
+          <a href="login.html" id="footerAuthLink">Sign in</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+  </html>
+

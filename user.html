@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My Account — Print It</title>
+    <meta name="description" content="Your profile and order history on Print It." />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="logo.png" />
+    <script src="app.js" defer></script>
+  </head>
+  <body data-page="user">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html">
+          <img src="logo.png" alt="Print It logo" class="brand-logo" onerror="this.style.display='none'" />
+          <span class="brand-text">Print It</span>
+        </a>
+        <nav class="nav">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="options.html" class="nav-link">Start Printing</a>
+          <a href="user.html" class="nav-link active">My Account</a>
+          <a href="rewards.html" class="nav-link">Rewards</a>
+          <a href="admin.html" class="nav-link">Admin</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="login.html" class="nav-link" id="navAuthLink">Sign in</a>
+          <button class="btn theme-toggle" id="themeToggle" title="Toggle theme">🌓</button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="auth-gate" id="authGate" style="display:none">
+        <div class="inline-notice warning">
+          Please sign in to view your account.
+          <a href="login.html" class="inline-link">Sign in</a>
+        </div>
+      </div>
+
+      <section class="grid-2">
+        <div class="card">
+          <h1 class="card-title">Your profile</h1>
+          <div class="stats">
+            <div class="stat">
+              <div class="stat-label">Name</div>
+              <div class="stat-value" id="userName">—</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Email</div>
+              <div class="stat-value" id="userEmail" style="font-size:18px">—</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Joined</div>
+              <div class="stat-value" id="userJoined">—</div>
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn" href="options.html">Create new print job</a>
+            <a class="btn btn-ghost" href="rewards.html">View rewards</a>
+          </div>
+        </div>
+
+        <div class="card subtle">
+          <h2 class="card-title">Quick tips</h2>
+          <ul class="bullets">
+            <li>Click Repeat to quickly re‑order a past job</li>
+            <li>Double‑sided and B/W can reduce costs</li>
+            <li>Earn points on every page</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="table-header">
+          <h2 class="card-title">Your orders</h2>
+          <div class="table-actions">
+            <input id="historySearch" class="input" type="search" placeholder="Search orders" />
+            <button id="clearHistory" class="btn btn-ghost">Clear</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="table" id="historyTable">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>File</th>
+                <th>Pages</th>
+                <th>Copies</th>
+                <th>Type</th>
+                <th>Sides</th>
+                <th>Binding</th>
+                <th>Price</th>
+                <th>Status</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="historyBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>© <span id="year"></span> Print It</div>
+        <div class="footer-links">
+          <a href="options.html">Print</a>
+          <a href="user.html">My Account</a>
+          <a href="rewards.html">Rewards</a>
+          <a href="admin.html">Admin</a>
+          <a href="about.html">About</a>
+          <a href="login.html" id="footerAuthLink">Sign in</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+  </html>
+

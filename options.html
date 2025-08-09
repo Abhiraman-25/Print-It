@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Print Options — Print It</title>
+    <meta name="description" content="Upload your file and customize print settings: color, double-sided, binding, paper, orientation, quality, and more." />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="logo.png" />
+    <script src="app.js" defer></script>
+  </head>
+  <body data-page="options">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html">
+          <img src="logo.png" alt="Print It logo" class="brand-logo" onerror="this.style.display='none'" />
+          <span class="brand-text">Print It</span>
+        </a>
+        <nav class="nav">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="options.html" class="nav-link active">Start Printing</a>
+          <a href="user.html" class="nav-link">My Account</a>
+          <a href="rewards.html" class="nav-link">Rewards</a>
+          <a href="admin.html" class="nav-link">Admin</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="login.html" class="nav-link" id="navAuthLink">Sign in</a>
+          <button class="btn theme-toggle" id="themeToggle" title="Toggle theme">🌓</button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="auth-gate" id="authGate" style="display:none">
+        <div class="inline-notice warning">
+          Please sign in to submit a print job.
+          <a href="login.html" class="inline-link">Sign in</a>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <section class="card">
+          <h1 class="card-title">Upload & choose options</h1>
+          <form id="printForm" class="form" novalidate>
+            <div class="form-row">
+              <label class="label" for="fileInput">File</label>
+              <input id="fileInput" class="input" type="file" accept=".pdf,.doc,.docx,.ppt,.pptx,.png,.jpg,.jpeg" required />
+            </div>
+
+            <div class="form-grid">
+              <div class="form-row">
+                <label class="label" for="numPages">Pages</label>
+                <input id="numPages" class="input" type="number" min="1" value="1" required />
+              </div>
+              <div class="form-row">
+                <label class="label" for="numCopies">Copies</label>
+                <input id="numCopies" class="input" type="number" min="1" value="1" />
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-row">
+                <label class="label" for="colorMode">Color</label>
+                <select id="colorMode" class="input">
+                  <option value="bw">Black & White</option>
+                  <option value="color" selected>Color</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <label class="label" for="sidedness">Sides</label>
+                <select id="sidedness" class="input">
+                  <option value="one">One-sided</option>
+                  <option value="two" selected>Two-sided</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-row">
+                <label class="label" for="binding">Binding</label>
+                <select id="binding" class="input">
+                  <option value="none" selected>No binding</option>
+                  <option value="staple">Staple</option>
+                  <option value="spiral">Spiral</option>
+                  <option value="comb">Comb</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <label class="label" for="paperSize">Paper size</label>
+                <select id="paperSize" class="input">
+                  <option value="A4" selected>A4</option>
+                  <option value="Letter">Letter</option>
+                  <option value="Legal">Legal</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-row">
+                <label class="label" for="paperType">Paper type</label>
+                <select id="paperType" class="input">
+                  <option value="standard" selected>Standard</option>
+                  <option value="premium">Premium</option>
+                  <option value="glossy">Glossy</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <label class="label" for="orientation">Orientation</label>
+                <select id="orientation" class="input">
+                  <option value="portrait" selected>Portrait</option>
+                  <option value="landscape">Landscape</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-row">
+                <label class="label" for="printQuality">Quality</label>
+                <select id="printQuality" class="input">
+                  <option value="draft">Draft</option>
+                  <option value="standard" selected>Standard</option>
+                  <option value="high">High</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <label class="label" for="finishing">Finishing</label>
+                <select id="finishing" class="input">
+                  <option value="none" selected>None</option>
+                  <option value="laminate">Laminate cover</option>
+                  <option value="hole_punch">3‑hole punch</option>
+                </select>
+              </div>
+            </div>
+
+            
+
+            <div class="form-row">
+              <label class="label" for="paymentMethod">Payment</label>
+              <select id="paymentMethod" class="input">
+                <option value="cash" selected>Cash</option>
+                <option value="online">Online</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <label class="label" for="additionalNotes">Notes</label>
+              <textarea id="additionalNotes" class="input" rows="3" placeholder="Any special instructions"></textarea>
+            </div>
+
+            <div class="summary card subtle">
+              <div class="summary-row">
+                <div>
+                  <div class="muted">Estimated price</div>
+                  <div class="price" id="price">₹0.00</div>
+                </div>
+                <div>
+                  <div class="muted">Reward points</div>
+                  <div class="price" id="points">0</div>
+                </div>
+              </div>
+              <div class="muted" id="calcNote">Prices are estimates. Final price may vary based on file content.</div>
+            </div>
+
+            <button class="btn btn-primary" id="submitJob" type="submit">Submit print job</button>
+          </form>
+        </section>
+
+        <aside>
+          <div class="card">
+            <h2 class="card-title">Tips for best results</h2>
+            <ul class="bullets">
+              <li>Prefer high‑resolution PDFs for precise layout.</li>
+              <li>Set page count accurately to price correctly.</li>
+              <li>Choose double‑sided to save paper (and cost).</li>
+              <li>Use binding for reports or booklets.</li>
+            </ul>
+          </div>
+          <div class="card subtle">
+            <h3 class="card-title">Common presets</h3>
+            <div class="presets">
+              <button class="chip" data-preset="report">Report</button>
+              <button class="chip" data-preset="handout">Handout</button>
+              <button class="chip" data-preset="photos">Photos</button>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>© <span id="year"></span> Print It</div>
+        <div class="footer-links">
+          <a href="options.html">Print</a>
+          <a href="user.html">My Account</a>
+          <a href="rewards.html">Rewards</a>
+          <a href="admin.html">Admin</a>
+          <a href="about.html">About</a>
+          <a href="login.html" id="footerAuthLink">Sign in</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+  </html>
+

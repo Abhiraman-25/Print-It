@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Print It — Fast, Reliable Online Printing</title>
+    <meta name="description" content="Upload PDFs or documents and customize print options: color, black & white, single or double-sided, binding, and more. Track order history and earn rewards." />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="logo.png" />
+    <script src="app.js" defer></script>
+  </head>
+  <body data-page="home">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html">
+          <img src="logo.png" alt="Print It logo" class="brand-logo" onerror="this.style.display='none'" />
+          <span class="brand-text">Print It</span>
+        </a>
+        <nav class="nav">
+          <a href="index.html" class="nav-link active">Home</a>
+          <a href="options.html" class="nav-link">Start Printing</a>
+          <a href="user.html" class="nav-link">My Account</a>
+          <a href="rewards.html" class="nav-link">Rewards</a>
+          <a href="admin.html" class="nav-link">Admin</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="login.html" class="nav-link" id="navAuthLink">Sign in</a>
+          <button class="btn theme-toggle" id="themeToggle" title="Toggle theme">🌓</button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <h1>Print documents the easy way</h1>
+            <p class="subtitle">Upload your PDF or files, choose print options, and pick up or get them delivered. Track every order and earn rewards as you go.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="options.html">Start printing</a>
+              <a class="btn btn-ghost" href="login.html" id="heroAuthLink">Sign in</a>
+            </div>
+          </div>
+          <div class="hero-card card">
+            <h3 class="card-title">The Printing Options Available</h3>
+            <ul class="checklist">
+              <li>Color or black & white</li>
+              <li>Single or double-sided</li>
+              <li>Binding, paper size, orientation</li>
+              <li>Transparent pricing</li>
+              <li>Order history & rewards</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="features container">
+        <div class="grid-3">
+          <div class="card">
+            <h3 class="card-title">Flexible options</h3>
+            <p>Fine‑tune print jobs: quality, paper, binding, copies, and more.</p>
+          </div>
+          <div class="card">
+            <h3 class="card-title">Track everything</h3>
+            <p>See previous orders, statuses, and re‑print in one click.</p>
+          </div>
+          <div class="card">
+            <h3 class="card-title">Earn rewards</h3>
+            <p>Collect points from every page and unlock exclusive perks.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>© <span id="year"></span> Print It</div>
+        <div class="footer-links">
+          <a href="options.html">Print</a>
+          <a href="user.html">My Account</a>
+          <a href="rewards.html">Rewards</a>
+          <a href="admin.html">Admin</a>
+          <a href="about.html">About</a>
+          <a href="login.html" id="footerAuthLink">Sign in</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+  </html>
+

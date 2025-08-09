@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sign in — Print It</title>
+    <meta name="description" content="Sign in or create an account to manage your print jobs, history, and rewards." />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="logo.png" />
+    <script src="app.js" defer></script>
+  </head>
+  <body data-page="login">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html">
+          <img src="logo.png" alt="Print It logo" class="brand-logo" onerror="this.style.display='none'" />
+          <span class="brand-text">Print It</span>
+        </a>
+        <nav class="nav">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="options.html" class="nav-link">Start Printing</a>
+          <a href="user.html" class="nav-link">My Account</a>
+          <a href="rewards.html" class="nav-link">Rewards</a>
+          <a href="admin.html" class="nav-link">Admin</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="login.html" class="nav-link active" id="navAuthLink">Sign in</a>
+          <button class="btn theme-toggle" id="themeToggle" title="Toggle theme">🌓</button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container auth-container">
+      <div class="card auth-card">
+        <h1 class="card-title">Welcome</h1>
+        <p class="muted">Sign in to continue. If you don't have an account, create one below.</p>
+
+        <form id="authForm" class="form">
+          <div class="form-row" id="nameRow" style="display:none">
+            <label for="name" class="label">Full name</label>
+            <input id="name" class="input" type="text" placeholder="Ada Lovelace" />
+          </div>
+
+          <div class="form-row">
+            <label for="roleSelect" class="label">Sign in as</label>
+            <select id="roleSelect" class="input">
+              <option value="user" selected>User</option>
+              <option value="admin">Admin</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="email" class="label">Email</label>
+            <input id="email" class="input" type="email" placeholder="you@example.com" required />
+          </div>
+
+          <div class="form-row">
+            <label for="password" class="label">Password</label>
+            <input id="password" class="input" type="password" placeholder="••••••••" required />
+          </div>
+
+          <button class="btn btn-primary w-full" type="submit">Continue</button>
+        </form>
+
+        <div class="inline-notice" id="authMessage" role="status" aria-live="polite"></div>
+        <div class="inline-notice">
+          <a href="#" id="toggleAuth" class="inline-link">Don't have an account? Create one</a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>© <span id="year"></span> Print It</div>
+        <div class="footer-links">
+          <a href="options.html">Print</a>
+          <a href="user.html">My Account</a>
+          <a href="rewards.html">Rewards</a>
+          <a href="admin.html">Admin</a>
+          <a href="about.html">About</a>
+          <a href="login.html" id="footerAuthLink">Sign in</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+  </html>
+
